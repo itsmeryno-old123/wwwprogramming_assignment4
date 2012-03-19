@@ -1,0 +1,56 @@
+<center>
+	<%= form_for @student do |s|%>
+		<%= s.error_messages %>
+		
+		<table border="0" width="50%">
+			<tr>
+				<td colspan="2" style="font-weight: bold">Please complete the following information in order to register</td>
+			</tr>
+			<tr>
+				<td width="30%">Name</td>
+				<td><input type="text" name="name"/></td>
+			</tr>
+			<tr>
+				<td>Student nr</td>
+				<td><input type="text" name="studentnumber"/>
+				</td> 
+			</tr>
+			<tr>
+				<td>E-mail address</td>
+				<td><input type="text" name="email"/></td> 
+			</tr>
+			<tr>
+				<td>Confirm e-mail address</td>
+				<td><input type="text" name="email_confirmation"/></td> 
+			</tr>
+			<tr>
+				<td>Password</td>
+				<td><input type="password" name="password" /></td>
+			</tr>
+			<tr>
+				<td>Confirm Password</td>
+				<td><input type="password" name="password_confirmation" /></td>
+			</tr>
+			<tr>
+				<td>Select Campus</td>
+				<td>
+					<%= select("post", "campus", @campuses, )%>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<input type="checkbox" name="terms_and_conditions" value="yes"> &nbsp; I accept the Terms and Conditions
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="Register!" /></td>
+			</tr>
+		</table>
+		
+		<p>
+			<%= s.label :studentnumber %> </br/>
+			<%= s.text_field :studentnumber %>
+		</p>
+	<% end %>
+</center>
+

@@ -1,0 +1,66 @@
+
+	<%= form_for (@student) do |s|%>
+		<center>
+		<table width="40%">
+			<tr>
+				<th colspan="2">Please complete the following information in order to register</th>
+			</tr>
+			
+			<tr>
+				<td width="30%">Student number</td>
+				<td><%= s.text_field :studentnumber %></td>
+			</tr>
+			
+			<tr>
+				<td>E-mail address</td>
+				<td><%= s.text_field :email%></td>
+			</tr>
+			
+			<tr>
+				<td>Confirm e-mail address</td>
+				<td><%= s.text_field :email_confirmation%></td>
+			</tr>
+			
+			<tr>
+				<td>Password</td>
+				<td><%= s.password_field :password %></td>
+			</tr>
+			
+			<tr>
+				<td>Confirm password</td>
+				<td><%= s.password_field :password_confirmation %></td>
+			</tr>
+			
+			<tr>
+				<td>Select campus</td>
+				<td> <%= select("student", "campus", @campuses) %></td>
+			</tr>
+			
+			<tr>
+				<td colspan="2" align="center"><%= s.submit "Register!" %></td>
+			</tr>
+			
+		</table>
+		
+		
+		<% if @student.errors.any? %>
+		
+			<div class="error_section">
+				<h3>
+					There were <%= pluralize(@student.errors.count, "error")%> during registration. Please correct the following
+					before continuing:<br/>
+				</h3>
+				<ul>
+					<% @student.errors.full_messages.each do |error|%>
+						<li> <%= error %> </li>
+					<% end %>
+				</ul>
+				
+			</div>
+		
+		<% end %>
+		
+		</center>
+	<% end %>
+
+
